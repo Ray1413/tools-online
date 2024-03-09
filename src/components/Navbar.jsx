@@ -1,52 +1,39 @@
 'use client'
 
-import {
-  HiOutlineBars3,
-  HiOutlineLanguage,
-  HiChevronDown,
-} from 'react-icons/hi2'
+import { HiOutlineLanguage, HiChevronDown } from 'react-icons/hi2'
+import { FaSwatchbook } from 'react-icons/fa6'
 import Logo from '@/components/Logo'
 
-function Navbar() {
+function Navbar({ leftSide }) {
   return (
-    <div className='bg-base-100 text-base-content sticky top-0 z-30 flex h-16 w-full justify-center bg-opacity-90 backdrop-blur transition-shadow duration-100 [transform:translate3d(0,0,0)] shadow-sm'>
+    <div className='bg-base-100 text-base-content sticky top-0 z-50 flex h-16 w-full justify-center bg-opacity-90 backdrop-blur transition-shadow duration-100 [transform:translate3d(0,0,0)] shadow-sm'>
       <nav className='navbar w-full'>
         <div className='flex flex-1 md:gap-1 lg:gap-2'>
-          <span
-            className='tooltip tooltip-bottom before:text-xs before:content-[attr(data-tip)]'
-            data-tip='Menu'
-          >
-            <label
-              aria-label='Open menu'
-              htmlFor='my-drawer'
-              className='btn btn-square btn-ghost drawer-button lg:hidden '
-            >
-              <HiOutlineBars3 className='inline-block h-5 w-5 stroke-current md:h-6 md:w-6' />
-            </label>
-          </span>
-          <div className='flex items-center gap-2 lg:hidden'>
+          {leftSide}
+
+          <div className='flex items-center gap-2'>
             <Logo />
           </div>
-          <div className='hidden w-full max-w-sm lg:flex'>
-            {/* search bar */}
-          </div>
+          {/* <div className='hidden w-full max-w-sm lg:flex'>
+            search bar
+          </div> */}
         </div>
 
         <div className='flex-0'>
-          <div className='flex-none items-center'>
+          {/* <div className='flex-none items-center'>
             <a href='#' className='btn btn-ghost drawer-button font-normal'>
               Item1
             </a>
-          </div>
+          </div> */}
 
-          <div title='Change Language' className='dropdown dropdown-end'>
+          <div title='Change Theme' className='dropdown dropdown-end'>
             <div
               tabIndex={0}
               role='button'
               className='btn btn-ghost'
-              aria-label='Language'
+              aria-label='Change Theme'
             >
-              <span className='hidden font-normal md:inline'>Theme</span>
+              <FaSwatchbook />
               <HiChevronDown className='hidden h-3 w-3 opacity-60 sm:inline-block' />
             </div>
             <div
@@ -143,7 +130,7 @@ function Navbar() {
               tabIndex={0}
               role='button'
               className='btn btn-ghost'
-              aria-label='Language'
+              aria-label='Change Language'
             >
               <HiOutlineLanguage className='h-5 w-5 stroke-2' />
               <HiChevronDown className='hidden h-3 w-3 opacity-60 sm:inline-block' />

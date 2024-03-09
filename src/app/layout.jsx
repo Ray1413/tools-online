@@ -1,7 +1,8 @@
-import { Drawer, DrawerContent, DrawerSide } from '@/components/Drawer'
+import { Drawer, DrawerToggle } from '@/components/Drawer'
 import Navbar from '@/components/Navbar'
 import MainContent from '@/components/MainContent'
 import Sidebar from '@/components/Sidebar'
+// import Sidebar from '@/components/Sidebar_bak'
 
 // import { Inter } from 'next/font/google'
 import '@/app/tailwind.css'
@@ -15,20 +16,17 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
+  const drawerId = 'my-drawer'
   return (
     <html lang='en'>
       {/* <body className={inter.className}>{children}</body> */}
       <body>
-        <Drawer>
-          <DrawerContent>
-            <Navbar />
-            <MainContent>{children}</MainContent>
-          </DrawerContent>
-
-          <DrawerSide>
-            <Sidebar />
-          </DrawerSide>
-        </Drawer>
+        <Navbar leftSide={<DrawerToggle drawerId={drawerId} />} />
+        <Drawer
+          drawerId={drawerId}
+          drawerSide={<Sidebar />}
+          drawerContent={<MainContent>{children}</MainContent>}
+        />
       </body>
     </html>
   )

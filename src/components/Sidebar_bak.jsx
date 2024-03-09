@@ -1,15 +1,16 @@
 import Link from 'next/link'
-import { BookOpenIcon } from '@heroicons/react/24/outline'
+// import { BookOpenIcon } from '@heroicons/react/24/outline'
 import Logo from '@/components/Logo'
 
 function Sidebar() {
   return (
-    <aside className='bg-base-100 w-80' style={{ minHeight: '100svh' }}>
+    <aside className='bg-base-100 w-80' style={{ minHeight: '100%' }}>
       {/* <div className='bg-base-100 sticky top-0 z-20 hidden items-center gap-2 bg-opacity-90 px-4 py-2 backdrop-blur lg:flex '></div> */}
       {/*  hidden lg:flex */}
-      <div className='bg-base-100 sticky top-0 z-20 items-center gap-2 bg-opacity-90 px-4 py-2 backdrop-blur hidden lg:flex shadow-sm'>
+
+      {/* <div className='bg-base-100 sticky top-0 z-20 items-center gap-2 bg-opacity-90 px-4 py-2 backdrop-blur hidden lg:flex shadow-sm'>
         <Logo />
-      </div>
+      </div> */}
 
       <div className='h-4'></div>
       <ul className='menu px-4 py-0'>
@@ -17,7 +18,7 @@ function Sidebar() {
           <details id='disclosure-docs' open=''>
             <summary className='group'>
               <span>
-                <BookOpenIcon className='text-orange-400 h-5 w-5' />
+                {/* <BookOpenIcon className='text-orange-400 h-5 w-5' /> */}
               </span>
               Docs
             </summary>

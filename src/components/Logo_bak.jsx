@@ -1,26 +1,38 @@
-import Link from 'next/link'
-import { BsTools } from 'react-icons/bs'
+import React from 'react'
 
 function Logo() {
   return (
     <>
-      {/* <a href='#' className='btn btn-ghost px-2'>
-        <BsTools className='w-8 h-8 text-accent' />
-        <div className='font-title inline-flex items-baseline gap-x-1 text-lg md:text-2xl'>
-          <span>Tools</span>
-          <span className='badge badge-primary'>online</span>
+      <a href='#' className='flex-0 btn btn-ghost px-2'>
+        <svg
+          width='32'
+          height='32'
+          viewBox='0 0 415 415'
+          xmlns='http://www.w3.org/2000/svg'
+        >
+          <rect
+            x='82.5'
+            y='290'
+            width='250'
+            height='125'
+            rx='62.5'
+            fill='#1AD1A5'
+          ></rect>
+          <circle
+            cx='207.5'
+            cy='135'
+            r='130'
+            fillOpacity='black'
+            fill-='.3'
+          ></circle>
+          <circle cx='207.5' cy='135' r='125' fill='white'></circle>
+          <circle cx='207.5' cy='135' r='56' fill='#FF9903'></circle>
+        </svg>
+        <div className='font-title inline-flex text-lg md:text-2xl'>
+          daisyUI
         </div>
-      </a> */}
-
-      <Link href={'/'} className='btn btn-ghost px-2'>
-        <BsTools className='w-8 h-8 text-primary' />
-      </Link>
-      <div className='font-title inline-flex items-baseline gap-x-1 text-lg md:text-2xl'>
-        <span>Tools</span>
-        <span className='badge badge-accent text-base shadow'>online</span>
-      </div>
-
-      {/* <div className='dropdown'>
+      </a>
+      <div className='dropdown'>
         <div
           tabIndex='0'
           role='button'
@@ -145,7 +157,7 @@ function Logo() {
             </a>
           </li>
         </ul>
-      </div> */}
+      </div>
     </>
   )
 }

@@ -2,7 +2,6 @@
 
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
-import Logo from '@/components/Logo'
 import { HiOutlineHome } from 'react-icons/hi2'
 import { BsFiletypePdf } from 'react-icons/bs'
 
@@ -23,11 +22,7 @@ function Sidebar() {
   const pathname = usePathname()
 
   return (
-    <aside className='bg-base-100 w-60' style={{ minHeight: '100svh' }}>
-      <div className='bg-base-100 sticky top-0 z-20 items-center gap-2 bg-opacity-90 px-4 py-2 backdrop-blur hidden lg:flex shadow-sm'>
-        <Logo />
-      </div>
-
+    <aside className='bg-base-100 w-60 h-full'>
       <div className='h-4'></div>
       <ul className='menu px-4 py-0'>
         {navLinks.map((l) => (
