@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
 import PDFPageGroup from './PDFPageGroup'
+import ToolBar from './ToolBar'
 
 function PDFDoc({ pdfData, pdfURL, pageGroupSize = 120 }) {
   const [pages, setPages] = useState([])
+  const [column, setColumn] = useState(3)
 
   const numberOfPageGroup = Math.ceil(pages.length / pageGroupSize)
 
@@ -49,9 +51,12 @@ function PDFDoc({ pdfData, pdfURL, pageGroupSize = 120 }) {
     <>
       {pages.length <= 0 ? null : (
         <div>
+          <ToolBar column={column} setColumn={setColumn} />
+
           {new Array(numberOfPageGroup).fill().map((item, index) => (
             <PDFPageGroup
               key={index}
+              column={column}
               pages={pages.slice(
                 index * pageGroupSize,
                 index * pageGroupSize + pageGroupSize

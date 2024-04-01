@@ -4,9 +4,6 @@ import { useRef, useState } from 'react'
 import Script from 'next/script'
 import Dropzone from '@/components/Dropzone'
 import PDFDoc from '@/components/PDFDoc'
-import { AiOutlineFundView } from 'react-icons/ai'
-import { VscPreview } from 'react-icons/vsc'
-import { AiOutlineFolderView } from 'react-icons/ai'
 import { GrView } from 'react-icons/gr'
 import { RiFolderDownloadLine } from 'react-icons/ri'
 
@@ -87,18 +84,14 @@ function PDFToImgPage() {
           <div className='mt-3 flex gap-3'>
             <div className='flex-grow'></div>
             <button
-              className='btn btn-outline btn-info'
+              className='btn btn-primary text-base-200'
               onClick={handlePreviewBtnClickTest}
             >
-              {/* <AiOutlineFolderView className='w-5 h-5' /> */}
               <GrView className='w-5 h-5' />
               Preview
             </button>
 
-            <button
-              className='btn btn-outline btn-success'
-              // onClick={handlePreviewBtnClickTest}
-            >
+            <button className='btn btn-accent text-base-200'>
               <RiFolderDownloadLine className='w-6 h-6' />
               Download
             </button>
