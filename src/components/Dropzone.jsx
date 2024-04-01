@@ -33,6 +33,10 @@ function Dropzone({ handleFileListChange }) {
     const handleFileInputChange = (event) => {
       console.log('change', event)
 
+      if (fileInputEl.files.length == 0) {
+        return
+      }
+
       if (validateFiles(fileInputEl.files)) {
         handleFileListChange(fileInputEl.files)
       } else {
