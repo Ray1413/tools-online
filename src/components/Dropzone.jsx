@@ -125,9 +125,8 @@ function Dropzone({ handleFileListChange }) {
         className='absolute w-full h-full border-4 border-dashed border-base-200'
       >
         <div className='flex flex-col w-full h-full p-6 gap-4 justify-center items-center '>
-          <span className='prose prose-xl'>Drag and drop a PDF file here</span>
-          {/* <span className='prose prose-xl'>OR</span> */}
-          <div className='divider'>OR</div>
+          <span className='text-lg'>Drag and drop a PDF file here</span>
+          <div className='divider text-lg'>OR</div>
           <input
             ref={fileInput}
             type='file'
