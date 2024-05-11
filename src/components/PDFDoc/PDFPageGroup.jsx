@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react'
-import { debounce } from '@/lib/utils'
+import { debounce } from '@/lib/utils.mjs'
 import PDFPage from './PDFPage'
 
 const getColumnClass = (column) => {

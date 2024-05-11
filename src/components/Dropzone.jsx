@@ -31,7 +31,7 @@ function Dropzone({ handleFileListChange }) {
   useEffect(() => {
     const fileInputEl = fileInput.current
     const handleFileInputChange = (event) => {
-      console.log('change', event)
+      // console.log('change', event)
 
       if (fileInputEl.files.length == 0) {
         return
