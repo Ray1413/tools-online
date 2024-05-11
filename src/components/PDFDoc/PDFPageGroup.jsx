@@ -3,23 +3,22 @@ import { debounce } from '@/lib/utils.mjs'
 import PDFPage from './PDFPage'
 
 const getColumnClass = (column) => {
-  let columnClass =
-    'p-4 grid-cols-1 gap-4 md:p-6 md:grid-cols-2 md:gap-6 xl:p-8 xl:grid-cols-3 xl:gap-8 2xl:p-8 2xl:grid-cols-4 2xl:gap-8'
+  let columnClass = 'grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4'
   switch (column) {
     case 1:
-      columnClass = 'p-4 grid-cols-1 gap-4'
+      columnClass = 'grid-cols-1'
       break
     case 2:
-      columnClass = 'p-6 grid-cols-2 gap-6'
+      columnClass = 'grid-cols-2'
       break
     case 3:
-      columnClass = 'p-8 grid-cols-3 gap-8'
+      columnClass = 'grid-cols-3'
       break
     case 4:
-      columnClass = 'p-8 grid-cols-4 gap-8'
+      columnClass = 'grid-cols-4'
       break
   }
-  return ' ' + columnClass
+  return ` ${columnClass} gap-4 md:gap-6 xl:gap-8 p-4 md:p-6 xl:p-8`
 }
 
 function PDFPageGroup({ column, pages, groupIndex, groupSize }) {
