@@ -66,6 +66,8 @@ function PDFDoc({ pdfFile, pdfData, pdfURL, pageGroupSize = 120 }) {
         >
           <PDFInfo pdfFile={pdfFile} pdf={pdf} />
 
+          <div className='divider'></div>
+
           <div className='mt-3 flex gap-3'>
             {/* <div className='flex-grow'></div> */}
 
