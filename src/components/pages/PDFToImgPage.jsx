@@ -11,12 +11,14 @@ function PDFToImgPage() {
   const fileListRef = useRef(null)
   // const [pdf, setPDF] = useState(null)
   const canPreviewRef = useRef(true)
+  const [pdfFile, setPdfFile] = useState(null)
   const [pdfData, setPDFData] = useState(null)
   const [pdfURL, setPDFURL] = useState(null)
 
   const handleFileListChange = (fileList) => {
     fileListRef.current = fileList
     canPreviewRef.current = true
+    readPDF()
   }
 
   // const handlePreviewBtnClick = () => {
@@ -42,7 +44,7 @@ function PDFToImgPage() {
   //   reader.readAsArrayBuffer(fileListRef.current[0])
   // }
 
-  const handlePreviewBtnClickTest = async () => {
+  const readPDF = () => {
     if (!(fileListRef.current && fileListRef.current.length > 0)) {
       alert('Please choose a PDF file.')
       return
@@ -52,12 +54,17 @@ function PDFToImgPage() {
       canPreviewRef.current = false
 
       const reader = new FileReader()
-      reader.onload = async (evt) => {
+      reader.onload = (evt) => {
         const pdfData = evt.target.result
+        setPdfFile(fileListRef.current[0])
         setPDFData(pdfData)
       }
       reader.readAsArrayBuffer(fileListRef.current[0])
     }
+  }
+
+  const handlePreviewBtnClickTest = () => {
+    readPDF()
   }
 
   // const handlePreviewBtnClickTest = () => {
@@ -81,8 +88,10 @@ function PDFToImgPage() {
       <div className='mx-auto px-6'>
         <div className='max-w-3xl mx-auto'>
           <Dropzone handleFileListChange={handleFileListChange} />
-          <div className='mt-3 flex gap-3'>
+
+          {/* <div className='mt-3 flex gap-3'>
             <div className='flex-grow'></div>
+
             <button
               className='btn btn-primary text-base-200'
               onClick={handlePreviewBtnClickTest}
@@ -95,18 +104,18 @@ function PDFToImgPage() {
               <RiFolderDownloadLine className='w-6 h-6' />
               Download
             </button>
-          </div>
+          </div> */}
         </div>
 
         <div
-          className='mt-6 -mx-6 -mb-16'
-          style={{
-            backgroundImage:
-              'repeating-linear-gradient(45deg,var(--fallback-b1,oklch(var(--b1))),var(--fallback-b1,oklch(var(--b1))) 13px,var(--fallback-pc,oklch(var(--pc))) 13px,var(--fallback-pc,oklch(var(--pc))) 14px)',
-            backgroundSize: '40px 40px',
-          }}
+        // className='mt-6 -mx-6 -mb-16'
+        // style={{
+        //   backgroundImage:
+        //     'repeating-linear-gradient(45deg,var(--fallback-b1,oklch(var(--b1))),var(--fallback-b1,oklch(var(--b1))) 13px,var(--fallback-pc,oklch(var(--pc))) 13px,var(--fallback-pc,oklch(var(--pc))) 14px)',
+        //   backgroundSize: '40px 40px',
+        // }}
         >
-          <PDFDoc pdfData={pdfData} pdfURL={pdfURL} />
+          <PDFDoc pdfFile={pdfFile} pdfData={pdfData} pdfURL={pdfURL} />
         </div>
       </div>
     </>
