@@ -46,7 +46,7 @@ function PDFPageGroup({ column, pages, groupIndex, groupSize }) {
     let lastWidth = null
     const handleWindowWidthChange = debounce(() => {
       if (lastWidth != window.innerWidth) {
-        console.log(window.innerWidth)
+        // console.log(window.innerWidth)
         lastWidth = window.innerWidth
         setShow(true)
       }
@@ -67,10 +67,10 @@ function PDFPageGroup({ column, pages, groupIndex, groupSize }) {
         entries.forEach((entry) => {
           // const target = entry.target
           if (entry.isIntersecting) {
-            console.log('show page group ' + groupIndex)
+            // console.log('show page group ' + groupIndex)
             setShow(true)
           } else {
-            console.log('hide page group ' + groupIndex)
+            // console.log('hide page group ' + groupIndex)
             setShow(false)
           }
         })

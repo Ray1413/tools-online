@@ -36,3 +36,47 @@ export const formatFileSize = (size) => {
     return ''
   }
 }
+
+export const isInt = (value) => {
+  var x
+  if (isNaN(value)) {
+    return false
+  }
+  x = parseFloat(value)
+  return (x | 0) === x
+}
+
+export const toBlobPromise = (canvas, type = 'image/jpeg', quality = 0.5) =>
+  new Promise((resolve, reject) => {
+    try {
+      canvas.toBlob(
+        (blob) => {
+          if (blob) {
+            resolve(blob)
+          } else {
+            reject('Cannot convert image')
+          }
+        },
+        type,
+        quality
+      )
+    } catch (error) {
+      reject(error)
+    }
+  })
+
+export const saveBlob = (blob, fileName) => {
+  if (blob && fileName) {
+    const aTag = document.createElement('a')
+    const url = window.URL.createObjectURL(blob)
+    aTag.href = url
+    aTag.download = fileName
+    aTag.click()
+    window.URL.revokeObjectURL(url)
+  }
+}
+
+export const sleep = (time) =>
+  new Promise((resolve, reject) => {
+    setTimeout(() => resolve(), time)
+  })

@@ -21,7 +21,7 @@ function ToolBar({ column, setColumn }) {
           <a
             key={col}
             role='tab'
-            className={`tab hover:bg-primary-content${
+            className={`tab hover:bg-primary hover:bg-opacity-30${
               col == column ? ' tab-active' : ''
             }`}
             onClick={() => setColumn(col)}

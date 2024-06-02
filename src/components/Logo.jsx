@@ -17,7 +17,7 @@ function Logo() {
       </Link>
       <div className='font-title inline-flex items-baseline gap-x-1 text-lg md:text-2xl'>
         <span>Tools</span>
-        <span className='badge badge-accent text-base shadow'>online</span>
+        <span className='badge badge-neutral shadow'>online</span>
       </div>
 
       {/* <div className='dropdown'>

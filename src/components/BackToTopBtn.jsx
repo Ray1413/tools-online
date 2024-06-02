@@ -20,7 +20,7 @@ function BackToTopBtn() {
   return (
     <>
       <button
-        className='btn btn-circle btn-accent text-base-200 fixed z-10 bottom-3 right-3 opacity-70'
+        className='btn btn-circle btn-primary text-base-200 fixed z-10 bottom-3 right-3 opacity-70'
         style={{
           opacity: show ? null : 0,
         }}

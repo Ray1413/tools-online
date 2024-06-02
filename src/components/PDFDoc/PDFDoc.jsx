@@ -1,13 +1,14 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import PDFPageGroup from './PDFPageGroup'
 import PDFInfo from './PDFInfo'
 import ToolBar from './ToolBar'
-import { RiFolderDownloadLine } from 'react-icons/ri'
+import DownloadImg from './DownloadImg'
 
 function PDFDoc({ pdfFile, pdfData, pdfURL, pageGroupSize = 120 }) {
   const [pdf, setPdf] = useState(null)
   const [pages, setPages] = useState([])
   const [column, setColumn] = useState(3)
+  const pdfInfoFirstRender = useRef(true)
 
   const numberOfPageGroup = Math.ceil(pages.length / pageGroupSize)
 
@@ -24,9 +25,11 @@ function PDFDoc({ pdfFile, pdfData, pdfURL, pageGroupSize = 120 }) {
 
       if (loadingTask) {
         try {
+          pdfInfoFirstRender.current = false
+
           pdf = await loadingTask.promise
           setPdf(pdf)
-          console.log(`PDF loaded (${pdf?.numPages} pages)`)
+          // console.log(`PDF loaded (${pdf?.numPages} pages)`)
 
           if (pdf?.numPages > 0) {
             const promiseList = new Array(pdf.numPages)
@@ -52,33 +55,19 @@ function PDFDoc({ pdfFile, pdfData, pdfURL, pageGroupSize = 120 }) {
     }
   }, [pdfData, pdfURL])
 
-  const handleDownloadBtnClick = () => {
-    console.log('handleDownloadBtnClick')
-  }
-
   return (
     <>
       <div className='max-w-3xl mx-auto mt-6 min-h-60'>
         <div
           className={`p-6 min-h-60 border-2 border-base-200 ${
-            pdf ? 'flex' : 'hidden'
+            pdf || !pdfInfoFirstRender.current ? 'flex' : 'hidden'
           } flex-col justify-between`}
         >
           <PDFInfo pdfFile={pdfFile} pdf={pdf} />
 
           <div className='divider'></div>
 
-          <div className='mt-3 flex gap-3'>
-            {/* <div className='flex-grow'></div> */}
-
-            <button
-              className='btn btn-accent text-base-200'
-              onClick={handleDownloadBtnClick}
-            >
-              <RiFolderDownloadLine className='w-6 h-6' />
-              Download
-            </button>
-          </div>
+          <DownloadImg pdfFile={pdfFile} pdf={pdf} />
         </div>
       </div>
 

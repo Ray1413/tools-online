@@ -7,8 +7,12 @@ function PDFPage({ page, pageIndexInGroup }) {
   const renderCompleteRef = useRef(false)
   const [renderComplete, setRenderComplete] = useState(false)
 
-  const scale = 1.5
-  const viewport = page.getViewport({ scale: scale })
+  let viewport = page.getViewport({ scale: 1 })
+  if (viewport.height <= 500 || viewport.width <= 500) {
+    viewport = page.getViewport({ scale: 2 })
+  } else if (viewport.height <= 1000 || viewport.width <= 1000) {
+    viewport = page.getViewport({ scale: 1.5 })
+  }
 
   useEffect(() => {
     let firstRender = true
@@ -40,7 +44,7 @@ function PDFPage({ page, pageIndexInGroup }) {
 
               const renderTask = page.render(renderContext)
               renderTask.promise.then(() => {
-                console.log(`page ${page.pageNumber} rendered`)
+                // console.log(`page ${page.pageNumber} rendered`)
                 setRenderComplete(true)
                 renderCompleteRef.current = true
                 page.cleanup()
