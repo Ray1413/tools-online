@@ -15,7 +15,7 @@ function Logo() {
       <Link href={'/'} className='btn btn-ghost px-2'>
         <BsTools className='w-8 h-8 text-primary' />
       </Link>
-      <div className='font-title inline-flex items-baseline gap-x-1 text-lg md:text-2xl'>
+      <div className='font-title inline-flex items-baseline gap-x-1 text-2xl'>
         <span>Tools</span>
         <span className='badge badge-neutral shadow'>online</span>
       </div>
